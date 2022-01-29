@@ -1,0 +1,24 @@
+ficha = []
+while True:
+    nome = str(input('Nome: '))
+    nota1 = float(input('Nota 1: '))
+    nota2 = float(input('Nota 2: '))
+    media = (nota1+nota2)/2
+    ficha.append([nome, [nota1, nota2], media])
+    resp = str(input('Quer continuar? [S/N]:')).upper().strip()[0]
+    if resp in 'nN':
+        break
+print('-='*30)
+print(f'{"No.":<4}{"Nome":<10}{"Media":>8}')
+print('-='*26)
+for i, a in enumerate(ficha):#i indice, a nome do aluno
+    print(f'{i:<4}{a[0]:<10}{a[2]:>8.1f}')#a[0] nome, a[2]media
+while True:
+    print('-'*35)
+    opc = int(input('Mostrar notas de qual aluno? (999 encerra!)'))
+    if opc == 999:
+        print('Finalizando...')
+        break
+    if opc <= len(ficha)-1:# se o opc for menor que o tamanho da ficha
+        print(f'Notas de {ficha[opc][0]} são {ficha[opc][1]}')
+print('Volte sempre!')
