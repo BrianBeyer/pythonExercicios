@@ -1,0 +1,40 @@
+import numpy as np
+print("Welcome to the Daily Expense Tracker!\n")
+print("""Menu:
+1. Add a new expense
+2. View all expenses
+3. Calculate total and average expense
+4. Clear all expenses
+5. Exit""")
+choice = 0
+lst = []
+while True:
+    choice = int(input())
+    if choice == 5:
+        break
+    if choice == 1:
+        msg = float(input())
+        lst.append(msg)
+        print("Expense added successfully!")
+    if choice == 2:
+        if lst == []:
+            print("No expenses recorded yet.")
+        else:
+            print("Your expenses:")
+            for i in range(len(lst)):
+                print(f"{i+1}. {lst[i]}")
+    if choice == 3:
+        if lst == []:
+            print("No expenses recorded yet.")
+        else:
+            total = sum(lst)
+            average = total / len(lst)
+            print(f"Total expense: {total}")
+            print(f"Average expense: {average}")
+    if choice == 4:
+        lst = []
+        print("All expenses cleared.")
+    if choice > 5 or choice == 0:
+        print("Invalid choice. Please try again.")
+
+print("Exiting the Daily Expense Tracker. Goodbye!")    
