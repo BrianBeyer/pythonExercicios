@@ -1,0 +1,29 @@
+item = ""
+opcao = ""
+lst = []
+while opcao != "s":
+    print("Selecione uma opção:")
+    opcao = input("[I]inserir\n[A]Apagar\n[L]Listar\n[S]Sair\n=").lower()
+    print("*-*"*20)
+    if opcao == "i":
+        valor = input("Valor:")
+        lst.append(valor)
+    elif opcao == "a":
+        try:
+            apagar = int(input("Escolha o indice para apagar: "))
+            if apagar >= 0 and apagar < len(lst):
+            
+                apagado = lst.pop(apagar)
+                print(f"{apagado} apagado.")
+        except ValueError or TypeError:
+                print("Valor invalido!")
+        else:
+            print("Nâo foi possivel apagar este indice!")
+    elif opcao == "l":
+         print("Lista:")
+         for i, j in enumerate(lst):
+             print(f"{i} {j}")
+    elif opcao == "s":
+        print("Saindo...")
+    else:
+        print("Opção invalida!")
