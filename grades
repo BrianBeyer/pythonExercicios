@@ -1,3 +1,17 @@
+"""
+Crie uma função chamada analyze_grades que recebe um dicionário de notas dos alunos como argumento. 
+As chaves do dicionário são os nomes dos alunos, e os valores são suas respectivas notas. 
+A função deve realizar as seguintes operações:
+Calcule a média de notas de todos os alunos.
+Encontre as notas mais alta e mais baixa.
+Identifique o(s) aluno(s) com as notas mais alta(s) e mais baixa(s).
+Retorne um dicionário contendo as seguintes informações:
+'average': A média de notas (arredondada para 2 casas decimais)
+'highest': A nota mais alta
+'lowest': A nota mais baixa
+'top_student': O nome do aluno com a nota mais alta
+'bottom_student': O nome do aluno com a nota mais baixa"""
+
 def analyze_grades(grades):
     hi = max(grades.values()) 
     lo = min(grades.values())
