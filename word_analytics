@@ -1,0 +1,52 @@
+"""Crie uma função chamada analyze_text que analisa palavras em uma string de texto.
+
+Sua função deve:
+
+Contar palavras únicas (insensível a maiúsculas e minúsculas)
+Encontrar todas as palavras que aparecem mais de uma vez
+Identificar todas as palavras palíndromas (palavras que são lidas da mesma forma de frente para trás e de trás para frente, como "level")
+Retorne um dicionário com três chaves:
+
+unique_count: o número de palavras únicas (conte também as palavras repetidas uma vez cada)
+repeated_words: uma lista ordenada de palavras que aparecem mais de uma vez
+palindromes: uma lista ordenada de palavras palíndromas
+Notas:
+
+Trate as palavras como insensíveis a maiúsculas e minúsculas (ex: "Hello" e "hello" são a mesma palavra)
+Remova qualquer pontuação (.,!?:;"()) das palavras
+Ordene as listas repeated_words e palindromes em ordem alfabética"""
+def analyze_text(text):
+    # 1. Split the text into words and normalize them
+    # (make lowercase and remove punctuation)
+    s = []
+    s = text.split()
+    s1 = map(lambda s: s.lower(), s)
+    s2 = map(lambda s: s.strip('.,!?:;"()'), s1)
+    l1 = list(s2)
+    
+    # 2. Count the occurrences of each word
+    word_count = {}
+    for i in l1:
+        word_count[i] = word_count.get(i, 0) +1
+    repeated_words = []
+    unique_count = 0
+
+    for i, j in word_count.items():
+        if j > 1:
+            repeated_words.append(i)
+    # 3. Find the number of unique words
+        elif j == 1:
+            unique_count = len(word_count)
+    repeated_words.sort()
+    # 5. Find palindrome words
+    palindromes_set = set()
+    for i in l1:
+        if i == i[::-1]:
+            palindromes_set.add(i)
+    palindromes = []
+    palindromes = list(palindromes_set)
+    palindromes = sorted(palindromes)
+    return {"unique_count": unique_count,
+            "repeated_words": repeated_words,
+            "palindromes": palindromes}
+print(analyze_text("Wow! Did Hannah see that Race car? Mom was there too. Hannah did see it!"))
